@@ -1,0 +1,19 @@
+{
+    "config": {
+        "name": "case config"
+    },
+    "teststeps": [
+        {
+            "name": "test domains",
+            "api": "api/dashboard/GET_domains.json",
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equal",
+                    "expect": 200,
+                    "msg": "check status_code"
+                }
+            ]
+        }
+    ]
+}

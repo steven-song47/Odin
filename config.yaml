@@ -1,0 +1,15 @@
+services:
+  - name: dashboard
+    policy: all
+    env:
+      - name: dev
+        host: https://shared-apim-dev.azure-api.net
+        token_cmd: az account get-access-token --resource api://c57f664a-005b-4f4e-9c85-d1b7dcf81b09
+      - name: qa
+        host: https://shared-apim-qa.azure-api.net
+        token_cmd: az account get-access-token --resource api://c57f664a-005b-4f4e-9c85-d1b7dcf81b09
+      - name: uat
+        host: https://shared-apim-uat.azure-api.net
+        token_cmd: az account get-access-token --resource api://c57f664a-005b-4f4e-9c85-d1b7dcf81b09
+test:
+  execute: /testcases/api

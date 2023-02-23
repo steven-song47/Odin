@@ -1,0 +1,34 @@
+{
+    "config": {
+        "name": "",
+        "variables": {
+            "service": "$get_service()",
+            "env": "$get_env()",
+            "api_name": ""
+        },
+        "base_url": "${get_host($service, $env)}",
+        "headers": {
+            "Authorization": "${get_token($service, $env)}"
+        }
+    },
+    "teststeps": [
+        {
+            "name": "",
+            "request": {
+                "method": "",
+                "url": ""
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equal",
+                    "expect": 200,
+                    "msg": "check status_code"
+                }
+            ],
+            "teardown_hooks": [
+                "${save_response($hrp_step_response, $api_name)}"
+            ]
+        }
+    ]
+}
